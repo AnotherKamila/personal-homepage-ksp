@@ -1,13 +1,13 @@
 {-# LANGUAGE OverloadedStrings #-}
 import Hakyll
+import Control.Monad
 
 config = defaultConfiguration { deployCommand = "rsync -avh _site/ ksp:~/www" }
 
 main = hakyllWith config $ do
-    match "assets/*" $ do
-        route   idRoute
-        compile copyFileCompiler
+    -- TODO something smart
 
-    match "stuff/*" $ do
-        route   idRoute
-        compile copyFileCompiler
+    -- just copy the rest
+    forM_ [ "assets/*", "stuff/*", "snippets/*" ]
+          (\p -> match p $ do route   idRoute
+                              compile copyFileCompiler)
