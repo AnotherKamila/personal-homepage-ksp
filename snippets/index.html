@@ -15,11 +15,13 @@
       <noscript>This thingy needs JavaScript, sorry.</noscript>
     </section>
     <script>
+      function $(id) { return document.getElementById(id); }
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'snippets.md', true);
       xhr.onload = function(e) {
         var md = this.status == 200 ? this.responseText : 'Could not fetch `snippets.md` :-(';
-        document.getElementById('content').innerHTML = marked(md, { gfm: true, smartypants: true });
+        $('content').innerHTML = marked(md, { gfm: true, smartypants: true });
+        $('now').scrollIntoView();
       };
       xhr.send();
     </script>
