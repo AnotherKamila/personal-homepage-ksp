@@ -4,10 +4,11 @@ body {
     font-family: sans-serif;
     line-height: 1.4;
 }
-h1, h2 {
+h1 {
     font-weight: bold;
     color: #aaa;
     text-transform: uppercase;
+    text-align: center;
 }
 p, ul, ol { margin: 0; }
 
@@ -19,7 +20,6 @@ p, ul, ol { margin: 0; }
     font-size: 2.0em;
     color: #aaa;
     text-transform: uppercase;
-    text-align: center;
     margin: 1.4em 0 0.5em 0;
 }
 
@@ -30,6 +30,7 @@ p, ul, ol { margin: 0; }
 #content h1 {
     margin: 1em 0 0 0;
     height: 0;
+    text-align: left;
     padding-left: 0.2em;
     line-height: 1.6;
     overflow: visible;
