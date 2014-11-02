@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kamila's Weekly Snippets</title>
+    <link rel="stylesheet" href="snippets.css">
+    <script src="marked.min.js"></script>
+  </head>
+
+  <body>
+    <h1 id="maintitle">Kamila's Weekly Snippets (Yay!)</h1>
+    <section id="content">
+      <noscript>This thingy needs JavaScript, sorry.</noscript>
+    </section>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'snippets.md', true);
+      xhr.onload = function(e) {
+        var md = this.status == 200 ? this.responseText : 'Could not fetch `snippets.md` :-(';
+        document.getElementById('content').innerHTML = marked(md, { gfm: true, smartypants: true });
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
