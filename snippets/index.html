@@ -16,17 +16,18 @@
       <blockquote>“Do just a little bit more each day: 1.01<sup>365</sup> is 37.78, but
       0.99<sup>365</sup> is just 0.026.”</blockquote>
     </header>
+    <a id="gotonow" href="#now">#now</a>
     <section id="content">
       <noscript>This thingy needs JavaScript, sorry.</noscript>
     </section>
     <script>
       function $(id) { return document.getElementById(id); }
+      function edit(html) { return html.replace(/\(.*yay!.*\)/g, '<span class="yay">$&</span>'); }
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'snippets.md', true);
       xhr.onload = function(e) {
         var md = this.status == 200 ? this.responseText : 'Could not fetch `snippets.md` :-(';
-        $('content').innerHTML = marked(md, { gfm: true, smartypants: true });
-        $('now').scrollIntoView();
+        $('content').innerHTML = edit(marked(md, { gfm: true, smartypants: true }));
       };
       xhr.send();
     </script>

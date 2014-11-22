@@ -49,3 +49,19 @@ p, ul, ol { margin: 0; }
 #content > ul { padding: 0 0 2.4em 10em; }
 
 }
+
+#gotonow {
+    position: fixed;
+    display: block;
+    right: 0;
+    top: 0;
+    background: #fff;
+    padding: 0.6em 1em;
+    color: #ccc;
+    font-weight: bold;
+}
+#gotonow:hover { color: #aaa; }
+
+.yay {
+    color: green;
+}
